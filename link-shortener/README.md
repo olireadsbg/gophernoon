@@ -9,11 +9,18 @@
         -d "url=https://oid.skybet.net&alias=oid" \
         localhost:80
     ```
-* Validate the input to ensure the URL is valid
+    * Ensure you're responding with a `201 Created` HTTP status code
+* Validate the input to ensure the URL is valid. If validation fails ensure you
+    are responding with a `400 Bad Request` HTTP status code.
     * https://gobyexample.com/url-parsing
 * Expose a web server which you can access a `/alias` on
-    * if an `alias:url` pair is found redirect using a `301`
-    * If an `alias:url` pair is not found return a `404`
+    * if an `alias:url` pair is found redirect using a `301 Moved Permanently` 
+        HTTP status code
+    * If an `alias:url` pair is not found respond with a `404 Not Found` HTTP 
+        status code
+* When writing a HTTP Status Code you can use the Go `net/http` package 
+    constants rather than using magic strings etc.
+    * https://go.dev/src/net/http/status.go
 
 ## Optional Tasks
 
