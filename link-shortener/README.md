@@ -1,4 +1,4 @@
-# Gophernoon - Building a link shortner service
+# Gophernoon - Building A Link Shortner Service
 
 ## Project Requirements
 
@@ -6,18 +6,21 @@
     ``` sh
     curl -X POST \
         -H "Content-Type: application/x-www-form-urlencoded" \
-        -d "url=https://oid.skybet.net&alias=oid" \
-        localhost:80
+        -d "url=https://example.com&alias=alias" \
+        localhost:80/create
     ```
     * Ensure you're responding with a `201 Created` HTTP status code
+    * Consider using a map to store `alias:url`
+        * https://gobyexample.com/maps
 * Validate the input to ensure the URL is valid. If validation fails ensure you
     are responding with a `400 Bad Request` HTTP status code.
     * https://gobyexample.com/url-parsing
-* Expose a web server which you can access a `/alias` on
+* Expose a web server which you can access a `/{alias}` on
     * if an `alias:url` pair is found redirect using a `301 Moved Permanently` 
         HTTP status code
     * If an `alias:url` pair is not found respond with a `404 Not Found` HTTP 
         status code
+    * https://gobyexample.com/http-servers
 * When writing a HTTP Status Code you can use the Go `net/http` package 
     constants rather than using magic strings etc.
     * https://go.dev/src/net/http/status.go
