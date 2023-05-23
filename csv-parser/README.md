@@ -32,6 +32,13 @@ associated with them to help you decide what level of challenge you want.
     * https://pkg.go.dev/flag
     * https://gobyexample.com/command-line-flags
 
+### Output your sorted data to JSON (Difficulty: 1)
+
+* It's often the case that we want to read a file and transform it to a 
+    different format. You can tag your structs and use `json.Marshal` to
+    output your data to JSON
+    * https://gobyexample.com/json
+
 ### Read your CSV file line by line (Difficulty: 3)
 
 * Your CSV file may be very large, and your system may not have much memory. 
